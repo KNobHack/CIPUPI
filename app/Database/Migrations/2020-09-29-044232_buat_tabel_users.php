@@ -20,7 +20,7 @@ class BuatTabelUsers extends Migration
 				'constraint' => '128',
 				'unique' => true,
 			],
-			'name' => [
+			'username' => [
 				'type' => 'VARCHAR',
 				'constraint' => '128',
 			],
@@ -42,7 +42,7 @@ class BuatTabelUsers extends Migration
 			],
 			'status' => [
 				'type' => 'ENUM',
-				'constraint' => ['Active', 'Blocked'],
+				'constraint' => ['Active', 'Inactive', 'Blocked'],
 			],
 		]);
 		$this->forge->addKey('id', true);
