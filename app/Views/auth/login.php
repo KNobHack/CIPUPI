@@ -15,6 +15,11 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Silahkan Login</h1>
             </div>
+            <?php if (!empty($pesan)) : ?>
+              <div class="alert alert-<?= $pesan['mode'] ?>" role="alert">
+                <?= $pesan['pesan'] ?>
+              </div>
+            <?php endif ?>
             <form class="user" method="POST" action="<?= base_url('login') ?>">
               <div class="form-group">
                 <input type="email" name="email" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Masukkan alamat email...">

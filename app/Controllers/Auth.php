@@ -18,7 +18,12 @@ class Auth extends BaseController
     // Halaman Login
     public function index()
     {
-        $data = ['title' => 'CIPUPI | Login'];
+        if ($this->session->loged_in) return redirect('home_page');
+
+        $data = [
+            'title' => 'CIPUPI | Login',
+            'pesan' => $this->session->getFlashdata('pesan'),
+        ];
         return view('auth/login', $data);
     }
 
@@ -33,19 +38,35 @@ class Auth extends BaseController
         if (!empty($user)) {
             if ($user->checkPassword($pass)) {
                 if ($user->status == 'Active') {
-                    echo 'Anda berhasil login';
+                    $user_info = [
+                        'username' => $user->username,
+                        'email' => $user->email,
+                        'created_at' => $user->created_at->format('H:i d/m/y'),
+                        'role' => $user->role,
+                    ];
+
+                    $this->session->set('loged_in', true);
+                    $this->session->set('user_info', $user_info);
+
+                    $this->session->setFlashdata('pesan', ['pesan' => 'Anda berhasil login', 'mode' => 'success']);
+                    return redirect('home_page');
                 } elseif ($user->status == 'Inactive') {
-                    echo 'Akun anda belum di aktifasi';
+                    $this->session->setFlashdata('pesan', ['pesan' => 'Akun anda belum di aktifasi', 'mode' => 'warning']);
+                    return redirect('login_page');
                 } elseif ($user->status == 'Blocked') {
-                    echo 'Akun anda di blokir';
+                    $this->session->setFlashdata('pesan', ['pesan' => 'Akun anda di blokir', 'mode' => 'danger']);
+                    return redirect('login_page');
                 } else {
-                    echo 'Terjadi kesalahan';
+                    $this->session->setFlashdata('pesan', ['pesan' => 'Terjadi kesalahan', 'mode' => 'warning']);
+                    return redirect('login_page');
                 }
             } else {
-                echo 'Username atau Password salah';
+                $this->session->setFlashdata('pesan', ['pesan' => 'Username atau Password salah', 'mode' => 'danger']);
+                return redirect('login_page');
             }
         } else {
-            echo 'Akun tidak ditemukan!';
+            $this->session->setFlashdata('pesan', ['pesan' => 'Akun tidak ditemukan!', 'mode' => 'warning']);
+            return redirect('login_page');
         }
     }
 
@@ -71,6 +92,12 @@ class Auth extends BaseController
         $this->userModel->save($user);
 
         // Kembalikan ke halaman login
+        return redirect('login_page');
+    }
+
+    public function logout()
+    {
+        $this->session->destroy();
         return redirect('login_page');
     }
 

@@ -8,12 +8,18 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Upload</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
-      </li>
+      <?php if ($loged_in) : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Upload</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
+        </li>
+      <?php else : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
+        </li>
+      <?php endif; ?>
     </ul>
     <form class="form-inline my-2 my-lg-0 d-none d-lg-inline">
       <div class="input-group">
