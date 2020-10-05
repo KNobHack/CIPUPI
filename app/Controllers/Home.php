@@ -8,9 +8,16 @@ class Home extends BaseController
 	{
 		$data = [
 			'title' => 'CIPUPI',
-			'loged_in' => $this->session->loged_in
+			'loged_in' => $this->session->loged_in,
+			'user_info' => $this->session->user_info,
 		];
+
 		return view('home/home', $data);
+	}
+
+	public function sedangDibuat()
+	{
+		return view('errors/html/being_builded.php');
 	}
 
 	//--------------------------------------------------------------------

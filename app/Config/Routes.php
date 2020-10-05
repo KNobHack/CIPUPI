@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /**
  * --------------------------------------------------------------------
@@ -38,6 +38,9 @@ $routes->add('logout', 'Auth::logout');
 
 $routes->get('register', 'Auth::register');
 $routes->post('register', 'Auth::registUser');
+
+// routes sedang di buat
+$routes->get('/profile', 'Home::sedangDibuat');
 
 /**
  * --------------------------------------------------------------------

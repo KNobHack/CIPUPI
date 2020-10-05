@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--main-bg-color);">
   <a class="navbar-brand" href="<?= base_url() ?>">
-    <img src="<?= base_url('assets/img/logo.png') ?>" alt="UPI" class="d-inline-block align-top" width="30" height="30" loading="lazy"> CIPUPI
+    <img src="<?= base_url('assets/img/logo.png') ?>" alt="UPI" class="d-inline-block align-top" width="30" height="30" loading="lazy"> CIPUPI <?= ($loged_in) ? '| ' . $user_info['username'] : '' ?>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,8 +10,13 @@
     <ul class="navbar-nav mr-auto">
       <?php if ($loged_in) : ?>
         <li class="nav-item">
-          <a class="nav-link" href="#">Upload</a>
+          <a class="nav-link" href="<?= base_url('profile') ?>">Profile</a>
         </li>
+        <?php if ($user_info['role'] == 'UPI Fam' || $user_info['role'] == 'Administrator') : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Upload</a>
+          </li>
+        <?php endif ?>
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
         </li>
