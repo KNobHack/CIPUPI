@@ -9,7 +9,6 @@ class UserModel extends Model
     protected $table = 'users';
 
     protected $returnType    = 'App\Entities\User';
-    protected $useSoftDeletes = false;
 
     protected $useTimestamps = true;
 

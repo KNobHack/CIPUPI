@@ -15,7 +15,17 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Registrasi Akun</h1>
             </div>
+            <?php if ($error = session('error')) : ?>
+              <div class="alert alert-danger" role="alert">
+                <?= $error ?>
+              </div>
+            <?php elseif (!empty($pesan)) : ?>
+              <div class="alert alert-<?= $pesan['mode'] ?>" role="alert">
+                <?= $pesan['pesan'] ?>
+              </div>
+            <?php endif ?>
             <form class="user" method="POST" action="<?= base_url('register') ?>">
+              <?= csrf_field() ?>
               <div class="form-group">
                 <input type="email" name="email" class="form-control" placeholder="Masukkan Alamat Email...">
               </div>

@@ -13,14 +13,19 @@
           <!-- Nested Row within Card Body -->
           <div class="p-5">
             <div class="text-center">
-              <h1 class="h4 text-gray-900 mb-4">Silahkan Login</h1>
+              <h1 class="h4 text-gray-900 mb-4">Login</h1>
             </div>
-            <?php if (!empty($pesan)) : ?>
+            <?php if ($error = session('error')) : ?>
+              <div class="alert alert-danger" role="alert">
+                <?= $error ?>
+              </div>
+            <?php elseif (!empty($pesan)) : ?>
               <div class="alert alert-<?= $pesan['mode'] ?>" role="alert">
                 <?= $pesan['pesan'] ?>
               </div>
             <?php endif ?>
             <form class="user" method="POST" action="<?= base_url('login') ?>">
+              <?= csrf_field() ?>
               <div class="form-group">
                 <input type="email" name="email" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Masukkan alamat email...">
               </div>

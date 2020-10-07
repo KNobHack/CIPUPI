@@ -16,6 +16,7 @@ namespace App\Controllers;
  */
 
 use CodeIgniter\Controller;
+use Config\Services;
 
 class BaseController extends Controller
 {
@@ -41,6 +42,6 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 
-		$this->session = \Config\Services::session();
+		$this->session = Services::session();
 	}
 }

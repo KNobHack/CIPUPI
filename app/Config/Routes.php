@@ -34,13 +34,13 @@ $routes->setAutoRoute(false);
 $routes->get('/', 'Home::index', ['as' => 'home_page']);
 $routes->get('login', 'Auth::index', ['as' => 'login_page']);
 $routes->post('login', 'Auth::login');
-$routes->add('logout', 'Auth::logout');
+$routes->add('logout', 'Auth::logout', ['filter' => 'auth']);
 
 $routes->get('register', 'Auth::register');
 $routes->post('register', 'Auth::registUser');
 
 // routes sedang di buat
-$routes->get('/profile', 'Home::sedangDibuat');
+$routes->get('/profile', 'Home::sedangDibuat', ['filter' => 'auth']);
 
 /**
  * --------------------------------------------------------------------
