@@ -38,13 +38,13 @@
               <div class="form-group">
                 <input type="password" name="password_confirm" class="form-control" placeholder="Ulangi Password">
               </div>
-              <button type="submit" class="btn btn-success btn-user btn-block">
+              <button type="submit" class="btn btn-user btn-block text-white" style="background-color: var(--main-bg-color);">
                 Registrasi
               </button>
             </form>
             <hr>
             <div class="text-center">
-              <a class="small" href="<?= base_url('/register') ?>">Sudah punya akun</a>
+              <a class="small" href="<?= base_url('/login') ?>">Sudah punya akun</a>
             </div>
           </div>
         </div>

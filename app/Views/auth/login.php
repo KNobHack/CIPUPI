@@ -38,7 +38,7 @@
                   <label class="custom-control-label" for="customCheck">Ingat saya</label>
                 </div>
               </div> -->
-              <button type="submit" class="btn btn-success btn-user btn-block">
+              <button type="submit" class="btn btn-user btn-block text-white" style="background-color: var(--main-bg-color);">
                 Login
               </button>
               <!-- <hr>
