@@ -99,3 +99,14 @@
 # honeypot.name = 'honeypot'
 # honeypot.template = '<label>{label}</label><input type="text" name="{name}" value=""/>'
 # honeypot.container = '<div style="display:none">{template}</div>'
+
+#--------------------------------------------------------------------
+# EMAIL SERVICES
+#--------------------------------------------------------------------
+
+# using google mail
+
+# email.from.email = 'youremail@gmail.com'
+# email.from.name = 'Your Name'
+# email.smtp.user = 'youremail@gmail.com'
+# email.smtp.pass = 'YoUrPasSwoRd'

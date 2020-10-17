@@ -1,4 +1,5 @@
 <?php
+
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
@@ -33,7 +34,7 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $protocol = 'mail';
+	public $protocol = 'smtp';
 
 	/**
 	 * The server path to Sendmail.
@@ -47,7 +48,7 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $SMTPHost;
+	public $SMTPHost = 'smtp.gmail.com';
 
 	/**
 	 * SMTP Username
@@ -68,7 +69,7 @@ class Email extends BaseConfig
 	 *
 	 * @var integer
 	 */
-	public $SMTPPort = 25;
+	public $SMTPPort = 465; // gmail ssl port
 
 	/**
 	 * SMTP Timeout (in seconds)
@@ -89,7 +90,7 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $SMTPCrypto = 'tls';
+	public $SMTPCrypto = 'ssl';
 
 	/**
 	 * Enable word-wrap
@@ -110,7 +111,7 @@ class Email extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $mailType = 'text';
+	public $mailType = 'html';
 
 	/**
 	 * Character set (utf-8, iso-8859-1, etc.)
@@ -168,4 +169,16 @@ class Email extends BaseConfig
 	 */
 	public $DSN = false;
 
+	/**
+	 * Mengisi atribut dengan fungsi env()
+	 * 
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->fromEmail = env('email.from.email', null);
+		$this->fromName = env('email.from.name', null);
+		$this->SMTPUser = env('email.smtp.user', null);
+		$this->SMTPPass = env('email.smtp.pass', null);
+	}
 }
