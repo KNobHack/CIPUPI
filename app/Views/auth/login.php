@@ -32,24 +32,30 @@
               <div class="form-group">
                 <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
               </div>
-              <!-- <div class="form-group">
-                <div class="custom-control custom-checkbox small">
-                  <input type="checkbox" class="custom-control-input" id="customCheck">
-                  <label class="custom-control-label" for="customCheck">Ingat saya</label>
+              <?php /*
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox small">
+                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                    <label class="custom-control-label" for="customCheck">Ingat saya</label>
+                  </div>
                 </div>
-              </div> -->
+              */ ?>
               <button type="submit" class="btn btn-user btn-block text-white" style="background-color: var(--main-bg-color);">
                 Login
               </button>
-              <!-- <hr>
-              <a href="index.html" class="btn btn-primary btn-user btn-block">
-                <i class="fab fa-google fa-fw"></i> Login dengan Google
-              </a> -->
+              <?php /*
+                <hr>
+                <a href="index.html" class="btn btn-primary btn-user btn-block">
+                  <i class="fab fa-google fa-fw"></i> Login dengan Google
+                </a>
+              */ ?>
             </form>
             <hr>
-            <!-- <div class="text-center">
-              <a class="small" href="forgot-password.html">Forgot Password?</a>
-            </div> -->
+            <?php /*
+              <div class="text-center">
+                <a class="small" href="forgot-password.html">Forgot Password?</a>
+              </div>
+            */ ?>
             <div class="text-center">
               <a class="small" href="<?= base_url('/register') ?>">Registrasi</a>
             </div>

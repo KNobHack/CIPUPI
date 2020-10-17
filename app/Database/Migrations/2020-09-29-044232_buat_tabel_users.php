@@ -23,6 +23,7 @@ class BuatTabelUsers extends Migration
 			'username' => [
 				'type' => 'VARCHAR',
 				'constraint' => '128',
+				'unique' => true,
 			],
 			'password' => [
 				'type' => 'VARCHAR',
@@ -43,6 +44,7 @@ class BuatTabelUsers extends Migration
 			'status' => [
 				'type' => 'ENUM',
 				'constraint' => ['Active', 'Inactive', 'Blocked'],
+				'default' => 'Inactive',
 			],
 		]);
 		$this->forge->addKey('id', true);

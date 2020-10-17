@@ -41,7 +41,7 @@
     </style>
     <?= $this->renderSection('css') ?>
 
-    <title><?= $title ?></title>
+    <title><?= (isset($title)) ? $title : 'CIPUPI' ?></title>
 </head>
 
 <body>
